@@ -1,3 +1,5 @@
+require 'pry-byebug'
+
 class TicTacToe
   def run_game
     while true
@@ -35,14 +37,18 @@ class TicTacToe
       # Ask the first player to enter a number
       puts "\n#{first_player.name}, please enter a number to place" \
             " '#{first_player.choice}'."
-      # while first_player_number_choice = gets.chomp
-      #   if game_board.game_board_array.include?(first_player_number_choice)
-      #     game_board.game_board_array[first_player_number_choice - 1] = first_player.choice
-      #     break
-      #   else
-      #     'Please enter a valid number.'
-      #   end
-      # end
+
+      while first_player_number_choice = gets.chomp.to_i
+        if game_board.game_board_array.include?(first_player_number_choice)
+          game_board.game_board_array[first_player_number_choice - 1] = first_player.choice
+          break
+        else
+          puts 'Please enter a valid number.'
+        end
+      end
+
+      # Show the game board again
+      game_board.draw_game_board
       break
     end
   end
