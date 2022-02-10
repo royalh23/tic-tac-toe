@@ -1,0 +1,1 @@
+This is a Tic-Tac-Toe project made with Ruby. The game is played from the command line. Two human players play against each other, and the gameboard is displayed in between turns.
