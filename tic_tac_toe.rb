@@ -1,8 +1,11 @@
 require 'pry-byebug'
 
 class TicTacToe
+  @@game_running = true
+
   def run_game
-    while true
+    while @@game_running
+      puts "Welcome to the Tic Tac Toe game! Let's get started."
       puts 'What is the name of the first player?'
       first_player_name = gets.chomp
       puts 'Please choose between "X" and "O".'
@@ -34,22 +37,64 @@ class TicTacToe
       @game_board = GameBoard.new
       @game_board.draw_game_board
 
-      # Ask the first player to enter a number
-      ask_first_player
+      # Play a round
+      9.times { round }
+    end
+  end
 
-      # Show the game board again
-      @game_board.draw_game_board
+  def round
+    # Ask the first player to enter a number
+    ask_first_player
 
-      # Check for win case
+    # Show the game board again
+    @game_board.draw_game_board
 
-      # Ask the second player to enter a number
-      ask_second_player
+    # Check for win case
+    check_win_case
 
-      # Show the game board again
-      @game_board.draw_game_board
+    # Ask the second player to enter a number
+    ask_second_player
 
-      # Check for win case
-      break
+    # Show the game board again
+    @game_board.draw_game_board
+
+    # Check for win case
+    check_win_case
+  end
+
+  def check_win_case
+    if @game_board.game_board_array[0] == @game_board.game_board_array[1] && 
+        @game_board.game_board_array[1] == @game_board.game_board_array[2]
+      puts 'Win!'
+      @@game_running = false
+    elsif @game_board.game_board_array[0] == @game_board.game_board_array[3] && 
+      @game_board.game_board_array[3] == @game_board.game_board_array[6]
+      puts 'Win!'
+      @@game_running = false
+    elsif @game_board.game_board_array[6] == @game_board.game_board_array[7] && 
+      @game_board.game_board_array[7] == @game_board.game_board_array[8]
+      puts 'Win!'
+      @@game_running = false
+    elsif @game_board.game_board_array[2] == @game_board.game_board_array[5] && 
+      @game_board.game_board_array[5] == @game_board.game_board_array[8]
+      puts 'Win!'
+      @@game_running = false
+    elsif @game_board.game_board_array[1] == @game_board.game_board_array[4] && 
+      @game_board.game_board_array[4] == @game_board.game_board_array[7]
+      puts 'Win!'
+      @@game_running = false
+    elsif @game_board.game_board_array[3] == @game_board.game_board_array[4] && 
+      @game_board.game_board_array[4] == @game_board.game_board_array[5]
+      puts 'Win!'
+      @@game_running = false
+    elsif @game_board.game_board_array[0] == @game_board.game_board_array[4] && 
+      @game_board.game_board_array[4] == @game_board.game_board_array[8]
+      puts 'Win!'
+      @@game_running = false
+    elsif @game_board.game_board_array[2] == @game_board.game_board_array[4] && 
+      @game_board.game_board_array[4] == @game_board.game_board_array[6]
+      puts 'Win!'
+      @@game_running = false
     end
   end
 
