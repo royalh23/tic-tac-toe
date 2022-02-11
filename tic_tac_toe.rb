@@ -40,7 +40,7 @@ class TicTacToe
       # Play rounds
       until @@game_running == false
         first_player_round
-        second_player_round
+        second_player_round if @@game_running
       end
     end
   end
