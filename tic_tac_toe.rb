@@ -37,12 +37,15 @@ class TicTacToe
       @game_board = GameBoard.new
       @game_board.draw_game_board
 
-      # Play a round
-      9.times { round }
+      # Play rounds
+      until @@game_running == false
+        first_player_round
+        second_player_round
+      end
     end
   end
 
-  def round
+  def first_player_round
     # Ask the first player to enter a number
     ask_first_player
 
@@ -51,7 +54,9 @@ class TicTacToe
 
     # Check for win case
     check_win_case
+  end
 
+  def second_player_round
     # Ask the second player to enter a number
     ask_second_player
 
