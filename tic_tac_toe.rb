@@ -34,13 +34,26 @@ class TicTacToe
       @game_board = GameBoard.new
       @game_board.draw_game_board
 
-      # Ask players to enter a number
-      ask_players
+      # Ask the first player to enter a number
+      ask_first_player
+
+      # Show the game board again
+      @game_board.draw_game_board
+
+      # Check for win case
+
+      # Ask the second player to enter a number
+      ask_second_player
+
+      # Show the game board again
+      @game_board.draw_game_board
+
+      # Check for win case
       break
     end
   end
 
-  def ask_players
+  def ask_first_player
     # Ask the first player to enter a number
     puts "\n#{@first_player.name}, please enter a number to place" \
           " '#{@first_player.choice}'."
@@ -53,11 +66,9 @@ class TicTacToe
         puts 'Please enter a valid number.'
       end
     end
+  end
 
-    # Show the game board again
-    @game_board.draw_game_board
-
-    # Ask the second player to enter a number
+  def ask_second_player
     puts "\n#{@second_player.name}, please enter a number to place" \
           " '#{@second_player.choice}'."
 
@@ -69,14 +80,7 @@ class TicTacToe
         puts 'Please enter a valid number.'
       end
     end
-
-    # Show the game board again
-    @game_board.draw_game_board
   end
-
-  def ask_first_player; end
-
-  def ask_second_player; end
 end
 
 class FirstPlayer
