@@ -68,31 +68,31 @@ class TicTacToe
   end
 
   def check_win_case
-    if @game_board.game_board_array[0] == @game_board.game_board_array[1] && 
+    if @game_board.game_board_array[0] == @game_board.game_board_array[1] &&
         @game_board.game_board_array[1] == @game_board.game_board_array[2]
       puts 'Win!'
       @@game_running = false
-    elsif @game_board.game_board_array[0] == @game_board.game_board_array[3] && 
+    elsif @game_board.game_board_array[0] == @game_board.game_board_array[3] &&
       @game_board.game_board_array[3] == @game_board.game_board_array[6]
       puts 'Win!'
       @@game_running = false
-    elsif @game_board.game_board_array[6] == @game_board.game_board_array[7] && 
+    elsif @game_board.game_board_array[6] == @game_board.game_board_array[7] &&
       @game_board.game_board_array[7] == @game_board.game_board_array[8]
       puts 'Win!'
       @@game_running = false
-    elsif @game_board.game_board_array[2] == @game_board.game_board_array[5] && 
+    elsif @game_board.game_board_array[2] == @game_board.game_board_array[5] &&
       @game_board.game_board_array[5] == @game_board.game_board_array[8]
       puts 'Win!'
       @@game_running = false
-    elsif @game_board.game_board_array[1] == @game_board.game_board_array[4] && 
+    elsif @game_board.game_board_array[1] == @game_board.game_board_array[4] &&
       @game_board.game_board_array[4] == @game_board.game_board_array[7]
       puts 'Win!'
       @@game_running = false
-    elsif @game_board.game_board_array[3] == @game_board.game_board_array[4] && 
+    elsif @game_board.game_board_array[3] == @game_board.game_board_array[4] &&
       @game_board.game_board_array[4] == @game_board.game_board_array[5]
       puts 'Win!'
       @@game_running = false
-    elsif @game_board.game_board_array[0] == @game_board.game_board_array[4] && 
+    elsif @game_board.game_board_array[0] == @game_board.game_board_array[4] &&
       @game_board.game_board_array[4] == @game_board.game_board_array[8]
       puts 'Win!'
       @@game_running = false
