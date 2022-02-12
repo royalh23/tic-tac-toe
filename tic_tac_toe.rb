@@ -1,5 +1,3 @@
-require 'pry-byebug'
-
 class TicTacToe
   @@game_running = true
 
