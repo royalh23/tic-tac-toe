@@ -156,6 +156,7 @@ class TicTacToe
           @@game_running = true
           break
         elsif answer.downcase == 'n'
+          puts "Thanks for playing!"
           @@game_running = false
           break
         else
