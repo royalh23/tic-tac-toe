@@ -5,7 +5,7 @@ class TicTacToe
 
   def run_game
     while @@game_running
-      puts "Welcome to the Tic Tac Toe game! Let's get started."
+      puts "\nWelcome to the Tic Tac Toe game! Let's get started."
       puts 'What is the name of the first player?'
       first_player_name = gets.chomp
       puts 'Please choose between "X" and "O".'
@@ -42,6 +42,9 @@ class TicTacToe
         first_player_round
         second_player_round if @@game_running
       end
+
+      # Ask the player if they want to play again
+      ask_to_play_again
     end
   end
 
@@ -141,6 +144,23 @@ class TicTacToe
         break
       else
         puts 'Please enter a valid number.'
+      end
+    end
+  end
+
+  def ask_to_play_again
+    unless @@game_running
+      puts 'Would you like to play again? (y / n)'
+      while answer = gets.chomp
+        if answer.downcase == 'y'
+          @@game_running = true
+          break
+        elsif answer.downcase == 'n'
+          @@game_running = false
+          break
+        else
+          puts "Please enter 'y' or 'n'."
+        end
       end
     end
   end
