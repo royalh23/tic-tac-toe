@@ -46,6 +46,8 @@ class TicTacToe
     end
   end
 
+  private
+
   def first_player_round
     # Ask the first player to enter a number
     ask_first_player
