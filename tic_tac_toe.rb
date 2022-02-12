@@ -70,37 +70,50 @@ class TicTacToe
   def check_win_case
     if @game_board.game_board_array[0] == @game_board.game_board_array[1] &&
         @game_board.game_board_array[1] == @game_board.game_board_array[2]
-      puts 'Win!'
-      @@game_running = false
+
+      check_winner(0)
     elsif @game_board.game_board_array[0] == @game_board.game_board_array[3] &&
       @game_board.game_board_array[3] == @game_board.game_board_array[6]
-      puts 'Win!'
-      @@game_running = false
+
+      check_winner(0)
     elsif @game_board.game_board_array[6] == @game_board.game_board_array[7] &&
       @game_board.game_board_array[7] == @game_board.game_board_array[8]
-      puts 'Win!'
-      @@game_running = false
+
+      check_winner(6)
     elsif @game_board.game_board_array[2] == @game_board.game_board_array[5] &&
       @game_board.game_board_array[5] == @game_board.game_board_array[8]
-      puts 'Win!'
-      @@game_running = false
+
+      check_winner(2)
     elsif @game_board.game_board_array[1] == @game_board.game_board_array[4] &&
       @game_board.game_board_array[4] == @game_board.game_board_array[7]
-      puts 'Win!'
-      @@game_running = false
+
+      check_winner(1)
     elsif @game_board.game_board_array[3] == @game_board.game_board_array[4] &&
       @game_board.game_board_array[4] == @game_board.game_board_array[5]
-      puts 'Win!'
-      @@game_running = false
+
+      check_winner(3)
     elsif @game_board.game_board_array[0] == @game_board.game_board_array[4] &&
       @game_board.game_board_array[4] == @game_board.game_board_array[8]
-      puts 'Win!'
-      @@game_running = false
-    elsif @game_board.game_board_array[2] == @game_board.game_board_array[4] && 
+
+      check_winner(0)
+    elsif @game_board.game_board_array[2] == @game_board.game_board_array[4] &&
       @game_board.game_board_array[4] == @game_board.game_board_array[6]
-      puts 'Win!'
+
+      check_winner(2)
+    elsif @game_board.game_board_array.all?(String)
+      puts "\nGame over! No one wins."
       @@game_running = false
     end
+  end
+
+  def check_winner(index)
+    case @game_board.game_board_array[index]
+    when @first_player.choice
+      puts "\nGame over! The winner is #{@first_player.name}."
+    else
+      puts "\nGame over! The winner is #{@second_player.name}."
+    end
+    @@game_running = false
   end
 
   def ask_first_player
