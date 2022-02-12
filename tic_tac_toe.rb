@@ -30,8 +30,8 @@ class TicTacToe
                                'X'
                              end
       @second_player = SecondPlayer.new(second_player_name, second_player_choice)
-      puts "The second player's choice is '#{@second_player.choice}' because" \
-            " of the first player's choice."
+      puts "#{@second_player.name}'s choice is '#{@second_player.choice}' because" \
+            " of #{@first_player.name}'s choice."
 
       # Show the game board
       @game_board = GameBoard.new
